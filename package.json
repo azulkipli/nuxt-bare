@@ -1,0 +1,29 @@
+{
+  "name": "nuxt-bare",
+  "version": "1.0.0",
+  "description": "nuxt app from scratch",
+  "main": "index.js",
+  "author": "azul",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "start:http-server": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && npx http-server dist -a localhost -p 4004 -C cert.pem -K key.pem -S -b",
+    "start:https": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && PORT=4004 nuxt start --env.NODE_TLS_REJECT_UNAUTHORIZED=0",
+    "inspect": "npx lighthouse http://localhost:3003/ --view --output html --output-path ./lighthouse-report.html",
+    "inspect:https": "npx lighthouse https://localhost:4004/ --view --output html --output-path ./lighthouse-report.html",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "nuxt": "^2.15.8"
+  },
+  "devDependencies": {
+    "@nuxt/postcss8": "^1.1.3",
+    "autoprefixer": "^10.4.7",
+    "nuxt-purgecss": "^1.0.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  }
+}
