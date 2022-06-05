@@ -3,7 +3,7 @@ import fs from 'fs'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  // ssr: false,
+  ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -22,19 +22,19 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxtapp',
+    title: 'nuxt-bare',
     htmlAttrs: {
       lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'deskripsi produk' },
+      { hid: 'description', name: 'description', content: 'nuxt bare app for starting new project' },
       { name: 'format-detection', content: 'telephone=no' },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: 'keywords, deskripsi, produk',
+        content: 'nuxt, vue, bare, app',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -83,8 +83,5 @@ export default {
         autoprefixer: {},
       },
     },
-    preset: {
-      stage: 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
-    }
   },
 }
