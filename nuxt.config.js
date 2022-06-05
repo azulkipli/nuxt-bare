@@ -9,16 +9,16 @@ export default {
   target: 'static',
 
   // Server config
-  server: {
-    port: process.env.PORT || 3003,
-    https:
-      process.env.NODE_ENV === 'production'
-        ? {
-            key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
-            cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
-          }
-        : false,
-  },
+  // server: {
+  //   port: process.env.PORT || 3003,
+  //   https:
+  //     process.env.NODE_ENV === 'production'
+  //       ? {
+  //           key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+  //           cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
+  //         }
+  //       : false,
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
