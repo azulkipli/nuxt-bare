@@ -1,33 +1,32 @@
-# FROM node:lts as builder
+# build stage
 FROM node:14.19.0-alpine3.14 as builder
 
 WORKDIR /app
+COPY package.json .
+COPY yarn.lock .
+
+RUN yarn install
 
 COPY . .
 
-RUN yarn install \
-  --prefer-offline \
-  --frozen-lockfile \
-  --non-interactive \
-  --production=false
+# copy ENV
+# COPY ./example.env .env
+# ENV NODE_ENV=production
 
-RUN yarn build
+# build nuxt app
+RUN yarn run generate
+# clear cache
+# RUN yarn cache clean
 
-RUN rm -rf node_modules && \
-  NODE_ENV=production yarn install \
-  --prefer-offline \
-  --pure-lockfile \
-  --non-interactive \
-  --production=true
+# production stage
+FROM nginx:stable-alpine as production
 
-# FROM node:lts
-FROM node:14.19.0-alpine3.14
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-WORKDIR /app
+RUN mkdir /usr/share/nginx/log
 
-COPY --from=builder /app  .
+COPY --from=builder /app/nginx.conf /etc/nginx/conf.d/default.conf
 
-ENV HOST 0.0.0.0
 EXPOSE 80
 
-CMD [ "yarn", "start" ]
+CMD ["nginx", "-g", "daemon off;"]

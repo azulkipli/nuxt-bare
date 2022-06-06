@@ -1,16 +1,16 @@
-import path from 'path'
-import fs from 'fs'
+// import path from 'path'
+// import fs from 'fs'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
+  ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Server config
-  // server: {
-  //   port: process.env.PORT || 3003,
+  server: {
+    port: process.env.PORT || 3003
   //   https:
   //     process.env.NODE_ENV === 'production'
   //       ? {
@@ -18,7 +18,7 @@ export default {
   //           cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
   //         }
   //       : false,
-  // },
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -49,7 +49,7 @@ export default {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

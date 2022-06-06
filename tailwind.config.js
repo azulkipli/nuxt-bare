@@ -20,6 +20,9 @@ module.exports = {
       fontSize: {
         nol: '0px',
       },
+      border:{
+        1: '1px'
+      },
       width: {
         180: '180px',
         200: '200px',
